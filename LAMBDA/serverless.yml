@@ -1,0 +1,25 @@
+service: devApp
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: ap-south-1
+  runtimeManagement: auto
+  stage: dev
+  memorySize: 512
+  versionFunctions: false
+  timeout: 15
+  tracing:
+    lambda: true
+
+functions:
+  myFunction:
+    handler: src/lambda_function.lambda_handler
+    description: Lambda function created using serverless framework
+    runtime: python3.11
+    memorySize: 512
+
+  devFunction:
+    handler: src/fetch_data.lambda_handler
+    description: Get status and status code
+    memorySize: 256
