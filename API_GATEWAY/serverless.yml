@@ -1,0 +1,22 @@
+service: ApiLambdaService
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: ap-south-1
+  runtimeManagement: auto
+  stage: dev
+  memorySize: 512
+  versionFunctions: false
+  timeout: 15
+  tracing:
+    lambda: true
+
+functions:
+  apiFunction:
+    handler: src/fetch_data.lambda_handler
+    memorySize: 256
+    events:
+    - http:
+        path: fetchData
+        method: get
