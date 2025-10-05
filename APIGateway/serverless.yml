@@ -6,7 +6,7 @@ provider:
   region: ap-south-1
   runtimeManagement: auto
   stage: dev
-  memorySize: 512
+  memorySize: 256
   versionFunctions: false
   timeout: 15
   tracing:
